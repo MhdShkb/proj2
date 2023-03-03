@@ -1,0 +1,42 @@
+{% extends 'index.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<div class="col-sm-14">
+<div class="card">
+  <div class="card-body">
+  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+  <a class="btn btn-outline-danger" href="{% url 'add_Dealer' %}" type="button">Add Dealer</a>
+  </div>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">sl_no</th>
+      <th scope="col">Name</th>
+      <th scope="col">Phone</th>
+      <th scope="col">E-mail</th>
+      <th scope="col">Address</th>
+      <th scope="col">Area</th>
+      <th scope="col">Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for i in data %}
+    <tr>
+      <th scope="row">{{forloop.counter}}</th>
+      <td>{{i.name}}</td>
+      <td>{{i.phone}}</td>
+      <td>{{i.email}}</td>
+      <td>{{i.address}}</td>
+      <td>{{i.area}}</td>
+      <td><a class="btn btn-warning" href="{% url 'edit_Dealer' i.id %}">Edit</a></td>
+      <td><a class="btn btn-danger" href="{% url 'delete_Dealer' i.id %}">Delete</a> </td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+
+      </div>
+</div>
+</div>
+{% endblock %}

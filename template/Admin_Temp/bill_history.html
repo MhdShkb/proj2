@@ -1,0 +1,37 @@
+{% extends 'Admin_Temp/index.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<div class="col-sm-14">
+<div class="card">
+  <div class="card-body">
+  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+<!--  <a class="btn btn-outline-danger" href="{% url 'add_Dealer' %}" type="button">Add Dealer</a>-->
+  </div>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">sl_no</th>
+      <th scope="col">Name</th>
+      <th scope="col">Amount</th>
+      <th scope="col">Status</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for i in data %}
+    <tr>
+      <th scope="row">{{forloop.counter}}</th>
+      <td>{{i.name}}</td>
+      <td>{{i.amount}}</td>
+      <td>{{i.status}}</td>
+<!--      <td><a class="btn btn-warning" href="{% url 'edit_Dealer' i.id %}">Edit</a></td>-->
+<!--      <td><a class="btn btn-danger" href="{% url 'delete_Dealer' i.id %}">Delete</a> </td>-->
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+
+      </div>
+</div>
+</div>
+{% endblock %}

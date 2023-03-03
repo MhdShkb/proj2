@@ -1,0 +1,36 @@
+{% extends 'Admin_Temp/index.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<div class="card">
+  <div class="card-body">
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">sl_no</th>
+      <th scope="col">Name</th>
+      <th scope="col">Phone</th>
+      <th scope="col">Address</th>
+      <th scope="col">Image</th>
+<!--      <th scope="col">Edit</th>-->
+      <th scope="col">Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for i in data %}
+    <tr>
+      <th scope="row">{{forloop.counter}}</th>
+      <td>{{i.name}}</td>
+      <td>{{i.phone}}</td>
+      <td>{{i.address}}</td>
+      <td><img src="{{i.image.url}}" width="300" height="150"></td>
+<!--      <td><a class="btn btn-warning" href="{% url 'edit_customer' i.id %}">Edit</a></td>-->
+      <td><a class="btn btn-danger" href="{% url 'delete_customer' i.id %}">Delete</a></td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+
+      </div>
+</div>
+{% endblock %}

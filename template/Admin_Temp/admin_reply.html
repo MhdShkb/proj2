@@ -1,0 +1,17 @@
+{% extends 'Admin_Temp/index.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<div class="card text-end" style="width: 25rem;">
+  <div class="card-body">
+    <div class="form-group pmd-textfield pmd-textfield-filled">
+	<label>Text Area</label>
+        <form method="POST">
+            {% csrf_token %}
+	<textarea required class="form-control" name="reply"></textarea>
+      <button type="submit" class="btn btn-primary">SEND</button>
+        </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

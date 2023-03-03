@@ -1,0 +1,44 @@
+{% extends 'Customer_Temp/index.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="col-lg-12">
+<div class="card">
+  <div class="card-body">
+    <div class="table-responsive">
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+  <a class="btn btn-outline-danger" href="{% url 'Customer_feedback' %}" type="button">Add Feedback</a>
+  </div>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Sl.No</th>
+      <th scope="col">Title</th>
+      <th scope="col">Feedback</th>
+      <th scope="col">Admin Reply</th>
+<!--      <th scope="col">Edit</th>-->
+<!--      <th scope="col">Delete</th>-->
+    </tr>
+  </thead>
+  <tbody>
+  {% for i in data %}
+    <tr>
+      <th scope="row">{{forloop.counter}}</th>
+      <td>{{i.title}}</td>
+      <td>{{i.feedback}}</td>
+      <td>
+      {% if i.reply == None %}
+      <p> No Reply yet </p>
+      {% else %}
+      {{ i.reply }}
+      {% endif %}
+      </td>
+<!--      <td><a class="btn btn-warning" href="{% url 'edit_customer_feedback' i.id %}">Edit</a> </td>-->
+<!--      <td><a class="btn btn-danger" href="{% url 'delete_customer_feedback' i.id %}">Delete</a> </td>-->
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+
+      </div>
+</div>
+{% endblock %}

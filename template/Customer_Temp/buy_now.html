@@ -1,0 +1,46 @@
+{% extends 'Customer_Temp/index.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<div class="card" style="width: 18rem;">
+              {% for i in data %}
+  <img src="{{i.image.url}}" class="card-img-top" alt="...">
+  <div class="card-body">
+          <h4 class="card-title">{{i.title}}</h4>
+          <p class="card-text">{{i.description}}</p>
+        <h5 class="card-title">{{i.price}}</h5>
+      <a type="submit" href="{% url 'bill_payment' i.id %}" class="btn btn-primary btn-sm">Buy Now</a>
+      <a type="submit" href="{% url 'bill_payment' i.id %}" class="btn btn-secondary btn-sm">Cash On Delivery</a>66
+          {% endfor %}
+
+  </div>
+</div>
+{% endblock %}
+
+
+
+
+
+
+
+<!--<div class="card">-->
+<!--    <div class="card">-->
+<!--  <div class="card-body">-->
+<!--    <h5 class="card-title">Book Details</h5>-->
+<!--&lt;!&ndash;    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>&ndash;&gt;-->
+<!--  </div>-->
+<!--</div>-->
+<!--    <table class="table">-->
+<!--&lt;!&ndash;  <thead>&ndash;&gt;-->
+<!--&lt;!&ndash;    <tr>&ndash;&gt;-->
+<!--&lt;!&ndash;      <th scope="col">Title</th>&ndash;&gt;-->
+<!--&lt;!&ndash;      <th scope="col">Price</th>&ndash;&gt;-->
+<!--&lt;!&ndash;    </tr>&ndash;&gt;-->
+<!--&lt;!&ndash;  </thead>&ndash;&gt;-->
+<!--    <tbody>-->
+<!--    <div class="card-body">-->
+
+<!--    </div>-->
+<!--    </tbody>-->
+<!--    </table>-->
+<!--</div>-->
